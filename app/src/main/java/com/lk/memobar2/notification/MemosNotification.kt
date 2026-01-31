@@ -30,8 +30,18 @@ object MemosNotification {
 
     fun getNotificationStringFromList(memos: List<MemoEntity>): String{
         val text = StringBuilder()
+        var shortenedText: String = ""
+        val maxTextLength: Int = 75
         for(memo in memos) {
-            text.append(memo.content).append("\n")
+            shortenedText = if (memo.content.length >= maxTextLength) {
+                val tempText = memo.content.substring(0,maxTextLength)
+                // make sure we actually get the last space before that so we got complete words
+                val indexSpace = tempText.lastIndexOf(' ')
+                tempText.substring(0, indexSpace) + " ..."
+            } else {
+                memo.content
+            }
+            text.append(shortenedText).append("\n")
         }
         return text.toString().trim('\n')
     }
