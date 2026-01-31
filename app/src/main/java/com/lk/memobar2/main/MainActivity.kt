@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.commit
 import androidx.fragment.app.transaction
 import androidx.lifecycle.*
+import com.google.android.material.color.DynamicColors
 import com.lk.memobar2.R
 import com.lk.memobar2.database.MemoEntity
 import com.lk.memobar2.fragments.ListFragment
@@ -19,7 +20,8 @@ class MainActivity : AppCompatActivity(), Observer<List<MemoEntity>> {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
+        // DynamicColors.applyToActivitiesIfAvailable(this)
         setContentView(R.layout.activity_main)
 
         initialiseNotificationHandling()
