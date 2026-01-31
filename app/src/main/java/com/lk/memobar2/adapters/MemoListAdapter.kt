@@ -28,7 +28,7 @@ class MemoListAdapter(private val memoList: List<MemoEntity>, private val listen
         holder.tvId.text = currentMemo.id.toString()
         holder.tvContent.text = currentMemo.content
         holder.toggleActive.isChecked = currentMemo.isActive
-        holder.toggleImportance.isChecked = currentMemo.importance == -1
+        //holder.toggleImportance.isChecked = currentMemo.importance == -1
         if(currentMemo.importance == -1) {
             /*holder.tvContent.alpha = 0.65f
             holder.toggleActive.alpha = 0.65f*/

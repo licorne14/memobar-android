@@ -73,12 +73,10 @@ class ListFragment : Fragment(), Observer<List<MemoEntity>>, AdapterActionListen
     }
 
 
-    override fun onChanged(update: List<MemoEntity>?) {
-        Log.v(TAG, "Update of list with size: ${update?.size}")
-        if (update != null) {
-            memos = update
-            setupRecyclerAdapter()
-        }
+    override fun onChanged(value: List<MemoEntity>) {
+        Log.v(TAG, "Update of list with size: ${value.size}")
+        memos = value
+        setupRecyclerAdapter()
     }
 
     override fun changeActiveState(memoId: Int) {

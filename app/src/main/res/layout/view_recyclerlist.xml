@@ -16,7 +16,7 @@
         android:layout_marginBottom="8dp"
         android:textSize="17sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/cb_change_importance"
+        app:layout_constraintEnd_toStartOf="@+id/toggle_view_active"
         app:layout_constraintStart_toEndOf="@+id/tv_view_id"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="@tools:sample/full_names" />
@@ -29,7 +29,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <CheckBox
+ <!--   <CheckBox
         android:id="@+id/cb_change_importance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -39,7 +39,7 @@
         android:buttonTint="#303030"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/toggle_view_active"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" />-->
 
     <CheckBox
         android:id="@+id/toggle_view_active"

@@ -38,10 +38,8 @@ class MainActivity : AppCompatActivity(), Observer<List<MemoEntity>> {
         }
     }
 
-    override fun onChanged(update: List<MemoEntity>?) {
-        if(update != null){
-            notificationManager.handleMemosUpdate(update)
-        }
+    override fun onChanged(value: List<MemoEntity>) {
+        notificationManager.handleMemosUpdate(value)
     }
 
     override fun onStop() {

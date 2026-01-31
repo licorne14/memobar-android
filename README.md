@@ -2,6 +2,13 @@
 
 Android application showing to-dos persistently as notification
 
+### Open To-Dos
+- Ask for notification permission (update changes)
+- fix not being able to check the box at the very bottom cause it's covered by the FAB
+- change icon colours?
+- import / export backups?
+
+
 ### Features
 * To-dos can be added, edited and removed
 * List is sorted by latest content changes
@@ -9,7 +16,6 @@ Android application showing to-dos persistently as notification
 * Marked to-dos are shown as notification
 
 ### Planned Features
-* Theme changer (at minimum between light and dark)
 * Export and import of backups
 
 **Motivation** 
@@ -18,8 +24,7 @@ Quick and direct access to urgent to-dos, as a regular reminder
 
 **Prerequisites**
 
-At minimum Android 5
-Storage permission will permit export and import of current to-dos to the local storage
+At minimum Android 8 (API-Level 26)
 
 **Code**
 Programmed with Kotlin

@@ -52,7 +52,6 @@ object MemosNotification {
         }
     }
 
-    @RequiresApi(26)
     private fun createNotificationChannel(manager: NotificationManager, context: Context){
         val resources = context.resources
         val channel = NotificationChannel(
@@ -87,7 +86,7 @@ object MemosNotification {
         val stack = TaskStackBuilder.create(context)
         stack.addParentStack(MainActivity::class.java)
         stack.addNextIntent(intent)
-        val pi = stack.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT)
+        val pi = stack.getPendingIntent(0, PendingIntent.FLAG_IMMUTABLE)
         builder.setContentIntent(pi)
     }
 }

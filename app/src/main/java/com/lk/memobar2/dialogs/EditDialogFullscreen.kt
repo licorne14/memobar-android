@@ -7,7 +7,7 @@ import android.view.*
 import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import androidx.fragment.app.DialogFragment
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import com.lk.memobar2.R
 import com.lk.memobar2.database.MemoEntity
 import com.lk.memobar2.main.*
@@ -29,7 +29,7 @@ class EditDialogFullscreen: DialogFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        viewModel = ViewModelProviders.of(requireActivity()).get(MemoViewModel::class.java)
+        viewModel = ViewModelProvider(requireActivity())[MemoViewModel::class.java]
         memo = arguments?.getSerializable(Utils.MEMO_KEY) as MemoEntity?
         title = arguments?.getInt(Utils.DIALOG_TITLE_RESOURCE) ?: R.string.dialog_edit_title
         if(memo == null) {

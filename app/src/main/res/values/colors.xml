@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#00BCD4</color>
-    <color name="colorPrimaryDark">#0097A7</color>
-    <color name="colorAccent">#FFC400</color>
-
     <color name="black">#000000</color>
     <color name="nearlyBlack">#333333</color>
     <color name="white">#FFFFFF</color>
     <color name="grey_divider">#3aaaaaaa</color>
     <color name="grey">#787878</color>
 
-    <color name="colorPrimary1">#795548</color>
+    <color name="colorPrimary1">#753742</color>
+    <color name="colorPrimaryDark1">#753742</color>
+    <color name="colorAccent1">#D8BD8A</color>
+
+
+
+    <!-- 553739, 605770 -->
+
+    <!--<color name="colorPrimary1">#795548</color>
     <color name="colorPrimaryDark1">#5d4037</color>
-    <color name="colorAccent1">#ff3d00</color> <!-- or
-    #d50000, #dd2c00, #ff3d00-->
+    <color name="colorAccent1">#ff3d00</color>-->
 
 </resources>
