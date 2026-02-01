@@ -43,8 +43,8 @@ class ListFragment : Fragment(), Observer<List<MemoEntity>>, AdapterActionListen
         return rootView
     }
 
-    override fun onActivityCreated(args: Bundle?) {
-        super.onActivityCreated(args)
+    override fun onViewCreated(view: View, args: Bundle?) {
+        super.onViewCreated(view, args)
         initialiseViewModel()
         requireActivity().actionBar?.setTitle(R.string.app_name)
         fab.setOnClickListener {

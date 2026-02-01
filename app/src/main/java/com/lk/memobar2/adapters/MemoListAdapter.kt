@@ -19,7 +19,7 @@ class MemoListAdapter(private val memoList: List<MemoEntity>, private val listen
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AdapterViewHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.view_recyclerlist,
             parent, false)
-        grey = v.context.resources.getColor(R.color.grey)
+        grey = v.context.resources.getColor(R.color.grey, null)
         return AdapterViewHolder(v, listener)
     }
 

@@ -19,8 +19,8 @@ abstract class MemoDatabase: RoomDatabase() {
         private var INSTANCE: MemoDatabase? = null
 
         private val MIGRATION_1_2 = object : Migration(1, 2) {
-            override fun migrate(database: SupportSQLiteDatabase) {
-                database.execSQL(
+            override fun migrate(db: SupportSQLiteDatabase) {
+                db.execSQL(
                     "ALTER TABLE memos ADD COLUMN importance INTEGER NOT NULL DEFAULT(0)")
                 // database.execSQL("UPDATE memos SET importance = 0")
             }

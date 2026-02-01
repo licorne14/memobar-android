@@ -76,11 +76,7 @@ object MemosNotification {
     }
 
     private fun initialiseBuilder(context: Context){
-        builder = if(Build.VERSION.SDK_INT > Build.VERSION_CODES.O) {
-            Notification.Builder(context, CHANNEL_ID)
-        } else {
-            Notification.Builder(context)
-        }
+        builder = Notification.Builder(context, CHANNEL_ID)
     }
 
     private fun setContent(notificationText: String, context: Context){

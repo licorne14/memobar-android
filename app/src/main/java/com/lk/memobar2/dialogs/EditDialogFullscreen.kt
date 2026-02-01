@@ -35,7 +35,8 @@ class EditDialogFullscreen: DialogFragment() {
         if(memo == null) {
             throw Exception("No Memo available for editing!!")
         }
-        return inflater.inflate(R.layout.dialog_edit_fullscreen, null)
+        Log.d(TAG, "onCreateView: $showsDialog")
+        return inflater.inflate(R.layout.dialog_edit_fullscreen, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

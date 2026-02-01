@@ -5,6 +5,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark1</item>
         <item name="colorAccent">@color/colorAccent1</item>
         <item name="dialogCornerRadius">2dp</item>
+        <item name="dynamicColorThemeOverlay">@style/AppThemeDynamic</item>
     </style>
 
     <style name="CorneredDialogStyle" parent="Theme.AppCompat.DayNight.Dialog.Alert">
@@ -16,6 +17,10 @@
         parent="ThemeOverlay.Material3.DynamicColors.DayNight">
     </style>
 
+    <style
+        name="AppThemeMaterial"
+        parent="Theme.Material3.DynamicColors.DayNight">
+    </style>
 
     <!-- IDEA_ add pure black theme -->
 
