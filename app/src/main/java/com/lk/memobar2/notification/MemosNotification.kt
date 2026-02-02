@@ -4,6 +4,7 @@ import android.app.*
 import android.content.Context
 import android.content.Intent
 import android.os.Build
+import android.util.Log
 import androidx.annotation.RequiresApi
 import com.lk.memobar2.R
 import com.lk.memobar2.database.MemoEntity
@@ -54,7 +55,7 @@ object MemosNotification {
     }
 
     private fun createNotChannelIfNecessary(context: Context){
-        if(Utils.isBuildVersionGreaterThan(Build.VERSION_CODES.O)) {
+        if(Utils.isBuildVersionGreaterThan(Build.VERSION_CODES.O)) { //API 26
             val manager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
             if(manager.getNotificationChannel(CHANNEL_ID) == null) {
                 createNotificationChannel(manager, context)
@@ -67,7 +68,7 @@ object MemosNotification {
         val channel = NotificationChannel(
             CHANNEL_ID,
             resources.getString(R.string.channel_title),
-            NotificationManager.IMPORTANCE_NONE
+            NotificationManager.IMPORTANCE_LOW
         )
         channel.description = resources.getString(R.string.channel_info)
         channel.setShowBadge(false)

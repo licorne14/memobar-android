@@ -3,14 +3,13 @@
 Android application showing to-dos persistently as notification
 
 ### Open To-Dos
-- update all the libraries etc.
-- Ask for notification permission (update changes)
-  - right now manual approval in settings is required
-- ~~fix not being able to check the box at the very bottom cause it's covered by the FAB~~
-- add support for dynamic design
-  - it does already follow the system per default
+- add support for dynamic design (initial support is implemented)
+  - rewrite UI in Compose?
 - import / export backups?
-
+- ~~update all the libraries etc.~~
+- ~~Ask for notification permission (update changes)~~
+    - ~~right now manual approval in settings is required~~
+- ~~fix not being able to check the box at the very bottom cause it's covered by the FAB~~
 
 ### Features
 * To-dos can be added, edited and removed
