@@ -1,4 +1,4 @@
-package com.lk.memobar2.ui
+package com.lk.memobar2.devtests
 
 import android.util.Log
 import androidx.compose.foundation.background

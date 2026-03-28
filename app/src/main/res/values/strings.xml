@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">MemoBar</string>
     <string name="app_name_debug">MemoBar Debug</string>
+    <string name="navigation_back">Zurück</string>
 
     <!-- Menu -->
     <string name="menu">Menü</string>
@@ -19,6 +20,11 @@
     <string name="dialog_new_title">Neu anlegen</string>
     <string name="dialog_edit_yes">Speichern</string>
     <string name="dialog_edit_placeholder">Neue Notiz &#8230;</string>
+
+    <!-- Settings -->
+    <string name="settings">Einstellungen</string>
+    <string name="settings_theme">Design</string>
+    <string name="settings_ui_cards">UI-Karten anzeigen</string>
 
     <!-- Notification -->
     <string name="channel_title">Memo-Benachrichtigung</string>

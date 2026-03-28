@@ -72,7 +72,8 @@ class ListFragmentCompose : Fragment(), Observer<List<MemoEntity>>, IMemoListAct
                 MaterialTheme(colorScheme = colorScheme) {
                     ListUIScreen(
                         memoListActions = this@ListFragmentCompose,
-                        memosState = memosState
+                        memosState = memosState,
+                        openSettings = this@ListFragmentCompose::openSettingsFragment
                     )
                 }
             }
@@ -86,6 +87,13 @@ class ListFragmentCompose : Fragment(), Observer<List<MemoEntity>>, IMemoListAct
         _memosState.update { oldValue ->
             Log.d(TAG, "onChanged: ${memos.size}")
             value
+        }
+    }
+
+    private fun openSettingsFragment() {
+        requireActivity().supportFragmentManager.commit {
+            add(R.id.fl_main, SettingsFragment::class.java, null, "SettingsFragment")
+            addToBackStack("SettingsFragment")
         }
     }
 

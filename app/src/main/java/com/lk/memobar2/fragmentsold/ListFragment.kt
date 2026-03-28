@@ -30,7 +30,7 @@ import com.lk.memobar2.fragments.ListFragmentCompose
 import com.lk.memobar2.main.MemoViewModel
 import com.lk.memobar2.main.Utils
 import com.lk.memobar2.ui.Themes
-import com.lk.memobar2.ui.RenderMainUI
+import com.lk.memobar2.devtests.RenderMainUI
 
 /**
  * Erstellt von Lena am 26/04/2019.

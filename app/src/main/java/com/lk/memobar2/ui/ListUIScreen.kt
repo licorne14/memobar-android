@@ -41,13 +41,15 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.lk.memobar2.R
 import com.lk.memobar2.database.MemoEntity
+import com.lk.memobar2.devtests.ColorSchemeCard
 import kotlinx.coroutines.flow.StateFlow
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ListUIScreen (
     memoListActions: IMemoListActions,
-    memosState: StateFlow<List<MemoEntity>>
+    memosState: StateFlow<List<MemoEntity>>,
+    openSettings: () -> Unit = {}
 ) {
     val memos by memosState.collectAsStateWithLifecycle()
     val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior()
@@ -63,7 +65,7 @@ fun ListUIScreen (
                 colors = Themes.getTopBarColors(),
                 actions = {
                     OverflowMenu(showColorCard, onCardVisibilityChanged = { showColorCard = !showColorCard },
-                        showListCards, onListCardVisChanged = {showListCards = !showListCards})
+                        showListCards, onListCardVisChanged = {showListCards = !showListCards}, onSettings = openSettings)
                 },
             )
         },
@@ -83,7 +85,9 @@ fun ListUIScreen (
                 LazyColumn(
                     contentPadding = PaddingValues(top = 0.dp, start = 6.dp, end = 6.dp, bottom = 88.dp),
                 ) {
-                    items(memos) { memo ->
+                    items(memos, key = {
+                        memo -> memo.id
+                    }) { memo ->
                         MemoRow(memo, memoListActions, showListCards)
                     }
                 }
@@ -146,7 +150,7 @@ fun MemoRow(memo: MemoEntity, memoListActions: IMemoListActions, showListCards: 
 
 @Composable
 fun OverflowMenu(showColorCard: Boolean, onCardVisibilityChanged: () -> Unit, showListCards: Boolean,
-                 onListCardVisChanged: () -> Unit) {
+                 onListCardVisChanged: () -> Unit, onSettings: () -> Unit) {
     var showOverflowMenu by rememberSaveable { mutableStateOf(false) }
 
     IconButton(onClick = { showOverflowMenu = !showOverflowMenu }) {
@@ -175,6 +179,13 @@ fun OverflowMenu(showColorCard: Boolean, onCardVisibilityChanged: () -> Unit, sh
             text = { Text(stringResource(R.string.menu_backup)) },
             onClick = {
                 Log.d("ListUIScreen", "ListUIScreen: click for backup")
+                showOverflowMenu = false
+            })
+        DropdownMenuItem(
+            text = { Text(stringResource(R.string.settings)) },
+            onClick = {
+                Log.d("ListUIScreen", "ListUIScreen: click for settings")
+                onSettings()
                 showOverflowMenu = false
             })
     }
