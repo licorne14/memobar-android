@@ -1,7 +1,6 @@
 package com.lk.memobar2.database
 
 import android.text.format.DateFormat
-import android.util.Log
 import androidx.room.*
 import java.io.Serializable
 import java.util.*

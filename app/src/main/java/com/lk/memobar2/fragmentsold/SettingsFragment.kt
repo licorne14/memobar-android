@@ -1,4 +1,4 @@
-package com.lk.memobar2.fragments
+package com.lk.memobar2.fragmentsold
 
 import android.os.Bundle
 import androidx.preference.PreferenceFragmentCompat

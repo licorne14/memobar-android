@@ -4,5 +4,10 @@
     <item
         android:id="@+id/menu_delete_item"
         android:title="@string/menu_delete" />
+    <item
+        android:id="@+id/menu_edit_compose"
+        android:title="@string/edit_with_compose"/>
+    <item android:id="@+id/menu_new_compose_list"
+        android:title="New compose list view"/>
 
 </menu>

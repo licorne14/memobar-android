@@ -41,6 +41,8 @@ class AdapterViewHolder(v: View, listener: AdapterActionListener):
                                      view: View,
                                      contextMenuInfo: ContextMenu.ContextMenuInfo?) {
         contextMenu.add(0, R.id.menu_delete_item, 0, R.string.menu_delete)
+        contextMenu.add(0, R.id.menu_edit_compose, 1, R.string.edit_with_compose)
+        contextMenu.add(0, R.id.menu_new_compose_list, 2, "New compose list")
     }
 
 

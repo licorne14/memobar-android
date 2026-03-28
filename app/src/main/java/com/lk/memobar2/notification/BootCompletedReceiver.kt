@@ -3,12 +3,8 @@ package com.lk.memobar2.notification
 import android.content.*
 import android.util.Log
 import kotlinx.coroutines.*
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.Observer
 import com.lk.memobar2.main.SharedPreferenceAccess
 import com.lk.memobar2.main.Utils
-import java.util.concurrent.CountDownLatch
-import java.util.concurrent.TimeUnit
 
 
 /**

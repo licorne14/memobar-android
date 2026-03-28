@@ -6,7 +6,6 @@ import android.content.Context
 import android.content.pm.PackageManager
 import android.util.Log
 import com.lk.memobar2.database.MemoEntity
-import java.security.Permissions
 
 /**
  * Erstellt von Lena am 28/04/2019.
@@ -18,8 +17,9 @@ class MemoNotificationManager(private val context: Context) {
         context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
     fun handleMemosUpdate(memos: List<MemoEntity>) {
+        // only launch if we're allowed, not that it would be visible anyway
         if (context.checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS) == PackageManager.PERMISSION_GRANTED) {
-        val filteredMemos = memos.filter { memo -> memo.isActive }
+            val filteredMemos = memos.filter { memo -> memo.isActive }
             if (filteredMemos.isEmpty()) {
                 systemNotManager.cancel(MemosNotification.NOTIFICATION_ID)
             } else {
@@ -30,6 +30,7 @@ class MemoNotificationManager(private val context: Context) {
     }
 
     fun handleMemosUpdate(memos: String){
+        // only launch if we're allowed, not that it would be visible anyway
         if (context.checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS) == PackageManager.PERMISSION_GRANTED) {
             if(memos.trim() != "") {
                 val notification = MemosNotification.buildNotification(context, memos)
@@ -39,7 +40,6 @@ class MemoNotificationManager(private val context: Context) {
     }
 
     private fun launchNotification(not: Notification) {
-        // only launch if we're allowed, not that it would be visible anyway
         not.flags = Notification.FLAG_NO_CLEAR
         systemNotManager.notify(MemosNotification.NOTIFICATION_ID, not)
         Log.d(TAG, "launchNotification: success")

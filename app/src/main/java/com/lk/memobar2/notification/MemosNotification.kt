@@ -4,13 +4,10 @@ import android.app.*
 import android.content.Context
 import android.content.Intent
 import android.os.Build
-import android.util.Log
-import androidx.annotation.RequiresApi
 import com.lk.memobar2.R
 import com.lk.memobar2.database.MemoEntity
 import com.lk.memobar2.main.MainActivity
 import com.lk.memobar2.main.Utils
-import java.lang.StringBuilder
 
 /**
  * Erstellt von Lena am 28/04/2019.
@@ -25,26 +22,8 @@ object MemosNotification {
     private lateinit var builder: Notification.Builder
 
     fun buildNotification(context: Context, memos: List<MemoEntity>): Notification {
-        val notificationText = getNotificationStringFromList(memos)
+        val notificationText = Utils.getNotificationStringFromList(memos)
         return buildNotification(context, notificationText)
-    }
-
-    fun getNotificationStringFromList(memos: List<MemoEntity>): String{
-        val text = StringBuilder()
-        var shortenedText: String = ""
-        val maxTextLength: Int = 75
-        for(memo in memos) {
-            shortenedText = if (memo.content.length >= maxTextLength) {
-                val tempText = memo.content.substring(0,maxTextLength)
-                // make sure we actually get the last space before that so we got complete words
-                val indexSpace = tempText.lastIndexOf(' ')
-                tempText.substring(0, indexSpace) + " ..."
-            } else {
-                memo.content
-            }
-            text.append(shortenedText).append("\n")
-        }
-        return text.toString().trim('\n')
     }
 
     fun buildNotification(context: Context, text: String): Notification {

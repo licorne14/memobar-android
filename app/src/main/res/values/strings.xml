@@ -1,18 +1,28 @@
 <resources>
     <string name="app_name">MemoBar</string>
-    <string name="icon_change_importance">Wichtigkeit ändern</string>
+    <string name="app_name_debug">MemoBar Debug</string>
 
     <!-- Menu -->
+    <string name="menu">Menü</string>
     <string name="menu_delete">Löschen</string>
+    <string name="menu_color_card_show">Farbkarte zeigen</string>
+    <string name="menu_color_card_hide">Farbkarte verstecken</string>
+    <string name="menu_list_card_show">UI-Karten anzeigen</string>
+    <string name="menu_list_card_hide">UI-Karten verstecken</string>
+    <string name="menu_backup">Backup (leer)</string>
+    <string name="icon_change_importance">Wichtigkeit ändern</string>
 
     <!-- Edit dialog -->
     <string name="dialog_cancel">Abbrechen</string>
     <string name="dialog_edit_title">Bearbeiten</string>
+    <string name="dialog_edit_title_error">Fehler: Konnte Bundle nicht lesen</string>
     <string name="dialog_new_title">Neu anlegen</string>
     <string name="dialog_edit_yes">Speichern</string>
+    <string name="dialog_edit_placeholder">Neue Notiz &#8230;</string>
 
     <!-- Notification -->
     <string name="channel_title">Memo-Benachrichtigung</string>
     <string name="channel_info">Zeigt die aktuellen Memos permanent an</string>
     <string name="hint_memo">Memo</string>
+    <string name="edit_with_compose">Edit with Compose</string>
 </resources>

@@ -5,6 +5,7 @@ import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
+import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
@@ -14,9 +15,8 @@ import androidx.lifecycle.*
 import com.google.android.material.color.DynamicColors
 import com.lk.memobar2.R
 import com.lk.memobar2.database.MemoEntity
-import com.lk.memobar2.fragments.ListFragment
+import com.lk.memobar2.fragments.ListFragmentCompose
 import com.lk.memobar2.notification.MemoNotificationManager
-import com.lk.memobar2.notification.MemosNotification
 
 class MainActivity : FragmentActivity(), Observer<List<MemoEntity>> {
 
@@ -27,13 +27,19 @@ class MainActivity : FragmentActivity(), Observer<List<MemoEntity>> {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
-        DynamicColors.applyToActivityIfAvailable(this)
+        Log.d(TAG, "onCreate")
+        themeSetup()
         setContentView(R.layout.activity_main)
 
         handleNotificationPermission()
         initialiseNotificationHandling()
-        changeToRecyclerList()
+        openMemoList()
+    }
+
+    private fun themeSetup() {
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
+        DynamicColors.applyToActivityIfAvailable(this)
+        enableEdgeToEdge()
     }
 
     private fun handleNotificationPermission() {
@@ -70,9 +76,17 @@ class MainActivity : FragmentActivity(), Observer<List<MemoEntity>> {
         notificationManager = MemoNotificationManager(application)
     }
 
-    private fun changeToRecyclerList(){
-        supportFragmentManager.commit {
-            replace(R.id.fl_main, ListFragment())
+    private fun openMemoList(){
+        // Log.d(TAG, "changeToRecyclerList: fragment amount: ${supportFragmentManager.fragments.count()}")
+        if (supportFragmentManager.fragments.count() >= 1) {
+            val fragment = supportFragmentManager.fragments.last()
+            // Log.d(TAG, "changeToRecyclerList: fragment id = ${fragment.id} and tag =${fragment.tag} ")
+        } else {
+            // only call it if there is no other fragment that will be automatically recreated
+            supportFragmentManager.commit {
+                replace(R.id.fl_main, ListFragmentCompose::class.java,
+                    null, "ListFragment")
+            }
         }
     }
 
@@ -82,9 +96,11 @@ class MainActivity : FragmentActivity(), Observer<List<MemoEntity>> {
 
     override fun onStop() {
         super.onStop()
+        Log.d(TAG, "onStop")
+        // save data to show notification on boot completion
         var data = viewModel.getMemos()
         data = data.filter { memo -> memo.isActive }
-        val textData = MemosNotification.getNotificationStringFromList(data)
+        val textData = Utils.getNotificationStringFromList(data)
         SharedPreferenceAccess.putString(Utils.PREF_KEY_NOTIFICATION, textData, applicationContext)
     }
 }

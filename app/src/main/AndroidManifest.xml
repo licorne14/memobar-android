@@ -6,10 +6,11 @@
 
     <application
         android:allowBackup="false"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_launcher_new_v2"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppThemeMaterial">
+        android:theme="@style/AppThemeMaterial"
+        android:windowSoftInputMode="adjustResize">
 
 
         <activity android:name=".main.MainActivity" android:exported="true">

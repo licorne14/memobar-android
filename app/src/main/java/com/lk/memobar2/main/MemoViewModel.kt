@@ -13,6 +13,7 @@ class MemoViewModel(application: Application): AndroidViewModel(application) {
     private val repository: DataRepository = LocalDBRepository(application)
     private val liveMemos = repository.getMemos()
 
+
     fun getMemos(): List<MemoEntity>{
         return liveMemos.value ?: listOf()
     }

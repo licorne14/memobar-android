@@ -1,4 +1,4 @@
-package com.lk.memobar2.dialogs
+package com.lk.memobar2.fragmentsold
 
 import android.content.Context
 import android.os.Bundle
@@ -62,7 +62,6 @@ class EditDialogFullscreen: DialogFragment() {
             this.dismiss()
         }
 
-        // TODO copy / paste bzw generell selektion ist buggy in Dialogen, vorläufig erfolgt die Anzeige Fullscreen
         // show input method
         if(editText.requestFocus()) {
             imm.showSoftInput(editText, InputMethodManager.SHOW_IMPLICIT)
